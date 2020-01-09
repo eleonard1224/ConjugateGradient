@@ -21,7 +21,7 @@ void conjugateGradient(const Matrix& A, Matrix& x, const Matrix& b, double tol) 
 
 	while(k <= n) {
 
-		s = (r0.transpose()*r0)/(d.transpose()*A*d);
+		s = (T(r0)*r0)/(T(d)*A*d);
 		x = x + d*s;
 		r = r0 - A*d*s;
 
@@ -29,13 +29,14 @@ void conjugateGradient(const Matrix& A, Matrix& x, const Matrix& b, double tol) 
 			return;
 		}
 
-		c = (r.transpose()*r)/(r0.transpose()*r0);
+		c = (T(r)*r)/(T(r0)*r0);
 		d = r + d*c;
 		r0 = r;
 
 		k += 1;
 	}
 }
+
 
 
 

@@ -32,6 +32,8 @@ class Matrix
     double  mag()const;
     int getMatrixRows(const Matrix &other)const{return other.rows;}
     int getMatrixCols(const Matrix &other)const{return other.cols;}
+    int getRows()const{return rows;}
+    int getCols()const{return cols;}
 
     friend  Matrix operator *(const double & num,const Matrix &m)
     {
@@ -50,5 +52,8 @@ class Matrix
 	operator double() { return Mat[0][0]; } //conversion function
 
 };
+
+// Takes the transpose of matrix A
+Matrix T(const Matrix & A);
 
 #endif /* MATRIX_H_ */

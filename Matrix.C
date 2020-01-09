@@ -214,7 +214,24 @@ Matrix::~Matrix ()//destructor
 }
 
 
+// Takes the transpose of matrix A
+Matrix T(const Matrix & A) {
 
+	int i, j;
+	int n_rows = A.getRows();
+	int n_columns = A.getCols();
+
+	Matrix PT(n_columns,n_rows);
+
+	for(i = 0; i < n_columns; i++) {
+		for(j = 0; j < n_rows; j++) {
+			PT[i][j] = A[j][i];
+		}
+	}
+	return PT;
+
+
+}
 
 
 
